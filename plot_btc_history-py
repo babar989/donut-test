@@ -1,0 +1,14 @@
+import yfinance as yf
+import matplotlib.pyplot as plt
+
+def plot_btc_history(period="1y"):
+    btc = yf.Ticker("BTC-USD")
+    df = btc.history(period=period)
+    plt.figure(figsize=(10, 5))
+    plt.plot(df.index, df["Close"])
+    plt.xlabel("Date")
+    plt.ylabel("Close Price (USD)")
+    plt.title("Bitcoin Price History")
+    plt.show()
+
+plot_btc_history("6mo")
